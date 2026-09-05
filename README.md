@@ -1,86 +1,62 @@
-# Native Android SMS Campaign Manager
+# SMS Campaign Manager
 
-A production-grade, native Android application built with **Kotlin**, **Jetpack Compose**, **MVVM Architecture**, **Room Database (SQLCipher Encrypted)**, **WorkManager**, and a **Foreground Service** for user-controlled SMS campaign management directly from the device's own SIM card.
+[![Status](https://img.shields.io/badge/status-active-success.svg)]()
+[![Type](https://img.shields.io/badge/type-Marketing%20Web%20App-blue.svg)]()
+[![License](https://img.shields.io/badge/license-MIT-purple.svg)]()
 
----
-
-## 📱 Features
-
-- **Dashboard**:
-  - Remaining monthly SMS counter (Default: 100 limit).
-  - Sent Today & Sent Month metrics.
-  - Failed Messages & Pending Queue counters.
-  - Active Campaign Live Monitor card with quick **Pause**, **Resume**, and **Cancel** controls.
-  - Real-time SIM card & Carrier info status banner (`SubscriptionManager`).
-
-- **Campaign Creation**:
-  - Import phone numbers from **CSV** files (`.csv`).
-  - Import contacts via native device Contact Picker (`READ_CONTACTS`).
-  - Paste numbers manually with multi-delimiter support (commas, newlines, semicolons).
-  - Automatic duplicate phone number detection & removal toggle.
-  - Live Phone Number Sanitization & Format Validation (E.164 / local 7-15 digits).
-  - SMS Message Composer with dynamic tag variables `{name}` and `{number}`.
-  - Live character & SMS segment counter (160 GSM / 70 Unicode).
-  - Cost & time estimation calculator before starting.
-  - **Explicit User Confirmation Dialog** before launching campaigns.
-
-- **SMS Sending & Dispatching**:
-  - Native `SmsManager` integration.
-  - Single-recipient sequential dispatching.
-  - Configurable delay (30 seconds to 10 minutes).
-  - Automatic retry mechanism for failed SMS (up to 3 retries).
-  - Automatically pauses when monthly SMS cap is reached.
-  - Unfinished campaign state restoration after device reboot or service interruption.
-
-- **Background Execution & Resilience**:
-  - Android **Foreground Service** with ongoing status notification.
-  - Notification controls: **Pause**, **Resume**, **Cancel**.
-  - `WorkManager` & `BOOT_COMPLETED` receiver for seamless reboot resumption without duplicate sends.
-  - Room DB state persistence after every single SMS attempt.
-
-- **Database & Security**:
-  - Encrypted SQLite Database powered by **SQLCipher** (`SupportOpenHelperFactory`).
-  - Key generated & securely stored in `EncryptedSharedPreferences` / Android KeyStore.
-  - **100% Local Execution**: Zero external network calls, zero tracking, total user privacy.
-
-- **Templates & Reports**:
-  - Saved SMS templates with Favorite toggle and Recently Used sorting.
-  - Comprehensive Campaign Reports & Success Rate metrics.
-  - Export Campaign Logs & Recipient lists to `.csv` format.
+> A bulk SMS marketing, contact list segmenting, and campaign scheduling application with delivery analytics.
 
 ---
 
-## 🛠️ Technology Stack
+## 🌟 Key Features
 
-- **Language**: Kotlin 2.3
-- **UI Framework**: Jetpack Compose + Material 3 (Light & Dark Theme)
-- **Architecture**: MVVM + Repository Pattern
-- **Database**: Room Database 2.6.1 + SQLCipher 4.5.4
-- **Background Tasks**: WorkManager 2.10.0 + Foreground Service
-- **Navigation**: Jetpack Compose Navigation
+- **Bulk phone number CSV import with validation and deduplication**
+- **Personalized SMS template creation with dynamic tag substitution**
+- **Scheduled campaign dispatch engine with rate limiting**
+- **Delivery status tracking (Sent, Delivered, Failed)**
 
 ---
 
-## 🚀 Build Instructions
+## 🛠️ Tech Stack & Technologies
 
-1. Open **Android Studio** (Ladybug or higher).
-2. Select **Open Project** and navigate to `C:\Users\ujwal\.gemini\antigravity-ide\scratch\SmsCampaignManager`.
-3. Allow Gradle to sync dependencies.
-4. Run the application on an Android device or emulator with SIM support:
-   ```bash
-   ./gradlew.bat assembleDebug
-   ```
-5. Run Unit Tests:
-   ```bash
-   ./gradlew.bat test
-   ```
+- **Project Type:** Marketing Web App
+- **Technologies Used:** JavaScript, Node.js, SMS Gateway API / Twilio, Bootstrap
 
 ---
 
-## 🛡️ Permissions Required
+## 🚀 Getting Started & Installation
 
-- `SEND_SMS`: Required to send campaign text messages from your SIM card.
-- `READ_PHONE_STATE`: Required to inspect SIM carrier and signal status.
-- `READ_CONTACTS`: Optional, required for importing contacts into campaigns.
-- `POST_NOTIFICATIONS`: Required for Android 13+ foreground service progress notifications.
-- `RECEIVE_BOOT_COMPLETED`: Required to restore pending campaigns after device restart.
+### 1. Clone the Repository
+```bash
+git clone https://github.com/Evostackr/SmsCampaignManager.git
+cd SmsCampaignManager
+```
+
+### 2. Run / Setup
+```bash
+npm install
+npm start
+```
+
+---
+
+## 📂 Project Structure
+```text
+├── src/ / app/        # Core source code & logic
+├── public/ / assets/  # Static assets, styling & media
+├── README.md          # Project documentation
+└── .gitignore         # Build artifacts & secret filters
+```
+
+---
+
+## 🤝 Contributing
+
+Contributions, issues, and feature requests are welcome!  
+Feel free to check the [issues page](https://github.com/Evostackr/SmsCampaignManager/issues).
+
+---
+
+## 📄 License
+
+This project is licensed under the **MIT License**.
