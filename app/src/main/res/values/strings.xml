@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">SMSCampaignManager</string>
+    <string name="app_short_name">SCM</string>
+    <string name="app_tagline">Professional Bulk SMS &amp; Campaign Management</string>
+</resources>
